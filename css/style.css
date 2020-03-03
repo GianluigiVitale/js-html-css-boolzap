@@ -106,6 +106,24 @@ i:hover {
     cursor: pointer;
 }
 
+.search-bar {
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    padding: 7px;
+    background-color: #FBFBFB;
+}
+
+.search-bar i {
+    color: #BEC1C3;
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+.search-bar input {
+    padding: 7px 5px;
+    width: 100%;
+}
 
 
 
