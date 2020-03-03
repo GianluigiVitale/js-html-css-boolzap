@@ -234,11 +234,13 @@ i:hover {
 }
 
 .fa-smile, .fa-microphone {
+    color: #767E81;
     font-size: 30px;
     padding: 15px;
 }
 
 .fa-paper-plane {
+    color: #767E81;
     font-size: 25px;
     padding-right: 15px;
 }
