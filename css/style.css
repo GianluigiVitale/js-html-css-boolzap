@@ -206,6 +206,11 @@ i:hover {
     padding: 15px;
 }
 
+.fa-paper-plane {
+    font-size: 25px;
+    padding-right: 15px;
+}
+
 .bottom-chat-container input {
     width: 85%;
     padding: 15px 0;
