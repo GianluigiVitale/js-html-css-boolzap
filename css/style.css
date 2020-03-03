@@ -17,3 +17,42 @@
     background-color: #DCE0DB;
     height: calc(100vh - 125px);
 }
+
+.container {
+    display: flex;
+    position: absolute;
+    top: 5vh;
+    left: 10%;
+    width: 80%;
+    height: 90vh;
+    background-color: lightblue;    /* da rimuovere */
+}
+
+.list-user {
+    width: 35%;
+    background-color: lightgray;  /* da rimuovere */
+}
+
+.round img {
+    border-radius: 50%;
+}
+
+.img-profile-options {
+    height: 90px;
+    background-color: #EDEDED;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
+}
+
+
+
+
+
+
+
+.chat {
+    width: 65%;
+    /* background-color: orange;   /* da rimuovere */ */
+}
