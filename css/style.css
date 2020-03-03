@@ -190,6 +190,38 @@ i:hover {
     color: #878E91;
 }
 
+.center-chat {
+    height: calc(100% - 90px - 80px);
+    padding: 50px 100px 0 100px;
+    overflow-y: auto;
+}
+
+.sent {
+    background-color: #DAFAC2;
+}
+
+.received {
+    background-color: white;
+}
+
+.box-message-sent {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 15px;
+}
+
+.box-message-received {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 15px;
+}
+
+.message {
+    display: inline-block;
+    padding: 20px 15px;
+    border-radius: 15px;
+}
+
 .bottom-chat-container {
     display: flex;
     justify-content: space-around;
