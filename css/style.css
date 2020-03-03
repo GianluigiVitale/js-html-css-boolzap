@@ -46,12 +46,10 @@ i:hover {
     left: 10%;
     width: 80%;
     height: 90vh;
-    background-color: lightblue;    /* da rimuovere */
 }
 
 .list-user {
     width: 35%;
-    background-color: lightgray;  /* da rimuovere */
     overflow-y: hidden;
 }
 
@@ -171,12 +169,29 @@ i:hover {
 
 
 
-
-
-
-
-
 .chat {
     width: 65%;
-    /* background-color: orange;   /* da rimuovere */ */
+    background-image: url('../img/background.png');  /* da rimuovere */
 }
+
+.top-user-chat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    background-color: #EDEDED;
+    padding-right: 15px;
+    border-left: 1px solid lightgray;
+}
+
+.bold p {
+    font-weight: 700;
+    color: #878E91;
+}
+
+
+
+
+
+
+/*  */
