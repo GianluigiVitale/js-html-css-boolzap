@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    height: 100vh;
+}
+
+.top-bcg {
+    height: 125px;
+    background-color: #00A093;
+}
+
+.bottom-bcg {
+    background-color: #DCE0DB;
+    height: calc(100vh - 125px);
+}
