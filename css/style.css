@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+.round img {
+    border-radius: 50%;
+}
+
+i:hover {
+    cursor: pointer;
+}
+
 .background {
     height: 100vh;
 }
@@ -33,10 +41,6 @@
     background-color: lightgray;  /* da rimuovere */
 }
 
-.round img {
-    border-radius: 50%;
-}
-
 .img-profile-options {
     height: 90px;
     background-color: #EDEDED;
@@ -46,6 +50,11 @@
     padding: 0 12px;
 }
 
+.right-icons i {
+    font-size: 25px;
+    color: #BABABA;
+    padding: 0 12px;
+}
 
 
 
