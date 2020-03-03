@@ -170,6 +170,7 @@ i:hover {
 
 
 .chat {
+    position: relative;
     width: 65%;
     background-image: url('../img/background.png');  /* da rimuovere */
 }
@@ -189,6 +190,26 @@ i:hover {
     color: #878E91;
 }
 
+.bottom-chat-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    height: 80px;
+    background-color: #F4F0ED;
+    width: 100%;
+}
+
+.fa-smile, .fa-microphone {
+    font-size: 30px;
+    padding: 15px;
+}
+
+.bottom-chat-container input {
+    width: 85%;
+    padding: 15px 0;
+}
 
 
 
