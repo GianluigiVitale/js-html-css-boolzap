@@ -12,6 +12,11 @@ h4 {
     letter-spacing: 1px;
     font-size: 16px;
 }
+
+h3 {
+    font-size: 20px;
+}
+
 .round-img img {
     border-radius: 50%;
 }
@@ -97,6 +102,7 @@ i:hover {
 }
 
 .notif-text p {
+    padding-top: 3px;
     text-decoration: underline;
     color: #6794A8;
     font-weight: 600;
@@ -120,13 +126,38 @@ i:hover {
     padding-left: 5px;
     padding-right: 10px;
 }
+
 .search-bar input {
     padding: 7px 5px;
     width: 100%;
 }
 
+.recent-chat {
+    background-color: #FFFFFF;
+}
 
+.recent-chat:hover {
+    background-color: #ECEEEE;
+}
 
+.user1 {
+    display: flex;
+    align-items: center;
+}
+
+.img-profile {
+    padding: 15px 20px;
+}
+
+.name-recent-user1 p {
+    color: #BEC1C3;
+    padding-top: 3px;
+}
+
+.last-chat-user1 {
+    display: flex;
+    justify-content: flex-end;
+}
 
 
 
