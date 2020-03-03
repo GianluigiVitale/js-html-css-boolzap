@@ -52,6 +52,7 @@ i:hover {
 .list-user {
     width: 35%;
     background-color: lightgray;  /* da rimuovere */
+    overflow-y: hidden;
 }
 
 .img-profile-options {
@@ -74,6 +75,8 @@ i:hover {
     align-items: center;
     height: 90px;
     background-color: #99DFFC;
+    padding-left: 15px;
+
 }
 
 .bell {
@@ -84,10 +87,6 @@ i:hover {
     width: 60px;
     border-radius: 50%;
     background-color: white;
-}
-
-.notifications {
-    padding-left: 15px;
 }
 
 .notifications i {
@@ -118,13 +117,14 @@ i:hover {
     align-items: center;
     padding: 7px;
     background-color: #FBFBFB;
+    height: 50px;
 }
 
 .search-bar i {
     color: #BEC1C3;
     font-size: 16px;
     padding-left: 5px;
-    padding-right: 10px;
+    padding-right: 12px;
 }
 
 .search-bar input {
@@ -134,13 +134,21 @@ i:hover {
 
 .recent-chat {
     background-color: #FFFFFF;
+    height: calc(100vh - 5vh - 90px - 90px - 50px - 5vh); /* per calcolare l'altezza per lo scroll sottraggo i 10vh del top e bottom e i 90px dei div */
+    overflow-y: auto;
 }
 
-.recent-chat:hover {
+.user:hover {
     background-color: #ECEEEE;
 }
 
-.user1 {
+.user {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.img-time {
     display: flex;
     align-items: center;
 }
@@ -149,15 +157,18 @@ i:hover {
     padding: 15px 20px;
 }
 
-.name-recent-user1 p {
+.name-recent-user p {
     color: #BEC1C3;
-    padding-top: 3px;
+    padding-top: 5px;
 }
 
-.last-chat-user1 {
-    display: flex;
-    justify-content: flex-end;
+.last-chat-user p {
+    padding-top: 25px;
+    padding-right: 15px;
+    color: #CFD1D3;
 }
+
+
 
 
 
