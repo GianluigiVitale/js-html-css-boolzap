@@ -14,6 +14,12 @@ $(document).ready(function() {
         }
     });
 
+    $("#message").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $(".fa-paper-plane").click();
+        }
+    });
+
     $('#search-bar').keyup(function(event){
         var filtroCaratteri = $(this).val().toLowerCase();
         $('.username').each(function(){
