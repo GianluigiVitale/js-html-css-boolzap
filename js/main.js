@@ -12,7 +12,20 @@ $(document).ready(function() {
             messaggio1.children('.testo-messaggio').text('Ok');
             $('.center-chat').append(messaggio1);
         }
-    })
+    });
+
+    $('#search-bar').keyup(function(event){
+        var filtroCaratteri = $(this).val().toLowerCase();
+        $('.username').each(function(){
+            var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();
+            // console.log(nomeUtente);
+            if (nomeUtente.includes(filtroCaratteri)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        })
+    });
 
 
 

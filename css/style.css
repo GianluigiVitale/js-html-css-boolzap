@@ -138,11 +138,11 @@ i:hover {
     overflow-y: auto;
 }
 
-[class*="username"]:hover {
+.username:hover {
     background-color: #ECEEEE;
 }
 
-[class*="username"] {
+.username {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -156,6 +156,11 @@ i:hover {
 
 .img-profile {
     padding: 15px 20px;
+}
+
+.img-profile img {
+    height: 65px;
+    width: 65px;
 }
 
 .name-recent-user p {
