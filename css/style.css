@@ -278,6 +278,9 @@ i:hover {
     /* margin-right: 15px; */
 }
 
+.not-active {
+    display: none;
+}
 
 
 

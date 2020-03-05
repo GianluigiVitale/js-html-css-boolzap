@@ -27,6 +27,15 @@ $(document).ready(function() {
         })
     });
 
+    $('#message').click(function(){
+        $('.fa-paper-plane').removeClass('not-active');
+        $('.fa-microphone').addClass('not-active');
+    });
+    $('.center-chat').click(function(){
+        $('.fa-paper-plane').addClass('not-active');
+        $('.fa-microphone').removeClass('not-active');
+    });
+
 
 
 
