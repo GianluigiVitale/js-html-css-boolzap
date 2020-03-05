@@ -201,13 +201,11 @@ i:hover {
 .box-message-sent, .template-box-message-sent {
     display: flex;
     justify-content: flex-end;
-    padding-bottom: 15px;
 }
 
-.box-message-received {
+.box-message-received, .template-box-message-received {
     display: flex;
     justify-content: flex-start;
-    padding-bottom: 15px;
 }
 
 .message-sent, .template-message-sent {
@@ -218,17 +216,20 @@ i:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-bottom: 15px;
 }
 
-.message-received {
+.message-received, .template-message-received {
     display: inline-block;
     padding: 20px 15px;
     border-radius: 15px;
     background-color: white;
+    margin-bottom: 15px;
 }
 
-.template-box-message-sent {
+.template-box-message-sent, .template-box-message-received {
     display: none;
+    margin-bottom: 15px;
 }
 
 .bottom-chat-container {
