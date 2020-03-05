@@ -138,11 +138,11 @@ i:hover {
     overflow-y: auto;
 }
 
-.user:hover {
+[class*="username"]:hover {
     background-color: #ECEEEE;
 }
 
-.user {
+[class*="username"] {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -198,15 +198,7 @@ i:hover {
     overflow-y: auto;
 }
 
-.sent {
-    background-color: #DAFAC2;
-}
-
-.received {
-    background-color: white;
-}
-
-.box-message-sent {
+.box-message-sent, .template-box-message-sent {
     display: flex;
     justify-content: flex-end;
     padding-bottom: 15px;
@@ -218,10 +210,25 @@ i:hover {
     padding-bottom: 15px;
 }
 
-.message {
+.message-sent, .template-message-sent {
     display: inline-block;
     padding: 20px 15px;
     border-radius: 15px;
+    background-color: #DAFAC2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.message-received {
+    display: inline-block;
+    padding: 20px 15px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.template-box-message-sent {
+    display: none;
 }
 
 .bottom-chat-container {
