@@ -11,14 +11,22 @@ $(document).ready(function() {
             var messaggio1 = $('.template-box-message-received .template-message-received').clone();
             messaggio1.children('.testo-messaggio').text('Ok');
             $('.center-chat').append(messaggio1);
+            scrollDown()
         }
     });
 
     $("#message").keyup(function(event) {
         if (event.keyCode === 13) {
             $(".fa-paper-plane").click();
+            scrollDown()
         }
     });
+
+    function scrollDown() {
+        var centerChatDown = document.getElementById('center-chat');
+        centerChatDown.scrollTop = 10000;
+    }
+
 
     $('#search-bar').keyup(function(event){
         var filtroCaratteri = $(this).val().toLowerCase();
