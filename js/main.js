@@ -5,7 +5,7 @@ $(document).ready(function() {
             $('#message').val('');
             var messaggio = $('.template-box-message-sent .template-message-sent').clone();
             messaggio.children('.testo-messaggio').text(messaggioInput);
-            $('.center-chat').append(messaggio);
+            $('.center-chat.active').append(messaggio);
 
             checkInputMessage(); //Eseguo nuovamente il controllo per rimuovere il paper-plane
             setTimeout(messageOk, 1000);
@@ -28,7 +28,7 @@ $(document).ready(function() {
     function messageOk() {
         var messaggio1 = $('.template-box-message-received .template-message-received').clone();
         messaggio1.children('.testo-messaggio').text('Ok');
-        $('.center-chat').append(messaggio1);
+        $('.center-chat.active').append(messaggio1);
         scrollDown();
     }
 
@@ -80,11 +80,12 @@ $(document).ready(function() {
                 $(this).removeClass('not-active');
             }
         });
-        // $('.center-chat').each(function() {
-        //     if (utente == (this).data('codiceUtente')) {
-        //
-        //     }
-        // });
+        $('.center-chat').each(function() {
+            if (utente == ($(this).data('codiceUtente'))) {
+                $('.center-chat').addClass('not-active').removeClass('active')
+                $(this).removeClass('not-active').addClass('active')
+            }
+        });
     });
 
 
