@@ -148,6 +148,7 @@ i:hover {
 
 .username:hover {
     background-color: #ECEEEE;
+    cursor: pointer;
 }
 
 .username {
@@ -281,8 +282,6 @@ i:hover {
 .not-active {
     display: none;
 }
-
-
 
 
 /*  */
