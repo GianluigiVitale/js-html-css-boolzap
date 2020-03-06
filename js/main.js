@@ -11,20 +11,20 @@ $(document).ready(function() {
             var messaggio1 = $('.template-box-message-received .template-message-received').clone();
             messaggio1.children('.testo-messaggio').text('Ok');
             $('.center-chat').append(messaggio1);
-            scrollDown()
+            scrollDown();
         }
     });
 
-    $("#message").keyup(function(event) {
+    $("#message").keypress(function(event) {
         if (event.keyCode === 13) {
             $(".fa-paper-plane").click();
-            scrollDown()
+            scrollDown();
         }
     });
 
     function scrollDown() {
-        var centerChatDown = document.getElementById('center-chat');
-        centerChatDown.scrollTop = 10000;
+        var centerChatDown = $('.center-chat').height();
+        $('.center-chat').scrollTop(centerChatDown);
     }
 
 
@@ -41,11 +41,10 @@ $(document).ready(function() {
         })
     });
 
-    $('#message').click(function(){
+    $('#message').focus(function(){
         $('.fa-paper-plane').removeClass('not-active');
         $('.fa-microphone').addClass('not-active');
-    });
-    $('.center-chat').click(function(){
+    }).blur(function(){
         $('.fa-paper-plane').addClass('not-active');
         $('.fa-microphone').removeClass('not-active');
     });
