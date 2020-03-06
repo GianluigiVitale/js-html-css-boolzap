@@ -7,9 +7,23 @@ $(document).ready(function() {
             messaggio.children('.testo-messaggio').text(messaggioInput);
             $('.center-chat').append(messaggio);
 
+            checkInputMessage(); //Eseguo nuovamente il controllo per rimuovere il paper-plane
             setTimeout(messageOk, 1000);
         }
     });
+
+    //Funzione che controlla se l'input ha un messaggio e fa apparire e scomparire le icone
+    function checkInputMessage() {
+        var messaggioInput = $('#message').val();
+
+        if (messaggioInput.length > 0) {
+            $('.fa-paper-plane').removeClass('not-active')
+            $('.fa-microphone').addClass('not-active')
+        } else {
+            $('.fa-microphone').removeClass('not-active')
+            $('.fa-paper-plane').addClass('not-active')
+        }
+    }
 
     function messageOk() {
         var messaggio1 = $('.template-box-message-received .template-message-received').clone();
@@ -18,7 +32,8 @@ $(document).ready(function() {
         scrollDown();
     }
 
-    $("#message").keypress(function(event) {
+    $("#message").keyup(function(event) {
+        checkInputMessage();
         if (event.keyCode === 13) {
             $(".fa-paper-plane").click();
             scrollDown();
@@ -26,7 +41,7 @@ $(document).ready(function() {
     });
 
     function scrollDown() {
-        var centerChatDown = $('.center-chat').height();
+        var centerChatDown = $('.center-chat').prop("scrollHeight");
         $('.center-chat').scrollTop(centerChatDown);
     }
     // function scrollDown() {
@@ -48,13 +63,13 @@ $(document).ready(function() {
         })
     });
 
-    $('#message').focus(function(){
-        $('.fa-paper-plane').removeClass('not-active');
-        $('.fa-microphone').addClass('not-active');
-    }).blur(function(){
-        $('.fa-paper-plane').addClass('not-active');
-        $('.fa-microphone').removeClass('not-active');
-    });
+    // $('#message').focus(function(){
+    //     $('.fa-paper-plane').removeClass('not-active');
+    //     $('.fa-microphone').addClass('not-active');
+    // }).blur(function(){
+    //     $('.fa-paper-plane').addClass('not-active');
+    //     $('.fa-microphone').removeClass('not-active');
+    // });
 
     $('.username').click(function() {
         var nomeUtenteClk = $(this).find('.name-recent-user h3').text();
@@ -65,6 +80,11 @@ $(document).ready(function() {
                 $(this).removeClass('not-active');
             }
         });
+        // $('.center-chat').each(function() {
+        //     if (utente == (this).data('codiceUtente')) {
+        //
+        //     }
+        // });
     });
 
 
