@@ -12,8 +12,8 @@ $(document).ready(function() {
         }
     });
 
-    //Funzione che controlla se l'input ha un messaggio e fa apparire e scomparire le icone
-    function checkInputMessage() {
+
+    function checkInputMessage() {  //Funzione che controlla se l'input ha un messaggio e fa apparire e scomparire le icone
         var messaggioInput = $('#message').val();
 
         if (messaggioInput.length > 0) {
@@ -32,15 +32,15 @@ $(document).ready(function() {
         scrollDown();
     }
 
-    $("#message").keyup(function(event) {
+    $("#message").keyup(function(event) {    // quando viene rilasciato un tasto dentro #message
         checkInputMessage();
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13) {             // se si preme il tasto invio
             $(".fa-paper-plane").click();
             scrollDown();
         }
     });
 
-    function scrollDown() {
+    function scrollDown() {         // funzione che serve per fare lo scroll automatico all'invio o ricezione di un messaggio
         var centerChatDown = $('.center-chat.active').prop("scrollHeight");
         $('.center-chat.active').scrollTop(centerChatDown);
     }
@@ -50,12 +50,12 @@ $(document).ready(function() {
     // }
 
 
-    $('#search-bar').keyup(function(event){
-        var filtroCaratteri = $(this).val().toLowerCase();
-        $('.username').each(function(){
-            var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();
+    $('#search-bar').keyup(function(event){         // quando viene rilasciato un tasto dentro #search-bar
+        var filtroCaratteri = $(this).val().toLowerCase();      // Variabile che salva il valore dell'input e lo tramuta in minuscolo
+        $('.username').each(function(){             // ciclo tutti gli '.username'
+            var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();     // variabile che salva il nome dell'username ciclato come testo e lo trasforma in minuscolo
             // console.log(nomeUtente);
-            if (nomeUtente.includes(filtroCaratteri)) {
+            if (nomeUtente.includes(filtroCaratteri)) {     // se la variabile nomeUtente e' inclusa in filtroCaratteri, mostro il nome utente altrimenti lo nascondo
                 $(this).show();
             } else {
                 $(this).hide();
@@ -71,19 +71,22 @@ $(document).ready(function() {
     //     $('.fa-microphone').removeClass('not-active');
     // });
 
-    $('.username').click(function() {
-        var nomeUtenteClk = $(this).find('.name-recent-user h3').text();
-        var utente = $(this).data('codiceUtente');
-        $('.img-name-lastaccess .img-time').each(function() {
-            if (utente == $(this).data('codiceUtente')) {
-                $('.img-name-lastaccess .img-time').addClass('not-active');
-                $(this).removeClass('not-active');
+    $('.username').click(function() {       // al click del div (.username)
+        var nomeUtenteClk = $(this).find('.name-recent-user h3').text();    // Variabile che salva il nome dell'utente come testo.
+        var utente = $(this).data('codiceUtente');                          // Variabile che salva il codice dell'utente.
+        $('.img-name-lastaccess .img-time').each(function() {               // Ciclo il div (posizionato sopra la chat utente) che contiene l'immagine, il nome utente e l'ultimo accesso
+            if (utente == $(this).data('codiceUtente')) {                   // Se il codice dell'utente cliccato e' uguale al codice utente (ciclato sopra)
+                $('.img-name-lastaccess .img-time').addClass('not-active');         // aggiungo a tutti la classe 'not-active'
+                $(this).removeClass('not-active');                                  // rimuovo la classe 'not-active' esattamente (this) a questo div .img-time
             }
         });
-        $('.center-chat').each(function() {
-            if (utente == ($(this).data('codiceUtente'))) {
-                $('.center-chat').addClass('not-active').removeClass('active')
-                $(this).removeClass('not-active').addClass('active')
+
+        // allo stesso modo come cambio il nome dell'utente cliccato sopra la chat, cosi' devo mostrare la sua chat
+
+        $('.center-chat').each(function() {                                 // ciclo il div .center-chat
+            if (utente == ($(this).data('codiceUtente'))) {                     // Se il codice dell'utente cliccato e' uguale al codice utente (ciclato sopra)
+                $('.center-chat').addClass('not-active').removeClass('active')      // a tutti i '.center-chat' aggiungo la classe 'not-active' e rimuovo la classe 'active'
+                $(this).removeClass('not-active').addClass('active')                // rimuovo la classe 'not-active' esattamente (this) a questo div '.center-chat' e gli aggiungo la classe active
             }
         });
     });
