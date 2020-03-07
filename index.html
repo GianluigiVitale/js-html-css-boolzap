@@ -11,13 +11,13 @@
         <script src="js/main.js" charset="utf-8"></script>
     </head>
     <body>
-        <div class="background">
+         <div class="background">           <!-- Sfondo della pagina -->
             <div class="top-bcg"></div>
             <div class="bottom-bcg"></div>
         </div>
-        <div class="container">
-            <div class="list-user">
-                <div class="img-profile-options round-img">
+        <div class="container">             <!-- Container generale che divide in due la pagina a sinistra 'list-user' e a destra 'chat' -->
+            <div class="list-user">         <!-- Parte sinistra -->
+                <div class="img-profile-options round-img">         <!-- Include immagine e le 3 icone -->
                     <div class="img-profile">
                         <img src="img/avataaars.png">
                     </div>
@@ -27,7 +27,7 @@
                         <i class="fas fa-ellipsis-v"></i>
                     </div>
                 </div>
-                <div class="notifications">
+                <div class="notifications">     <!-- Sezione 'attiva le notifiche' -->
                     <div class="bell">
                         <i class="fas fa-bell-slash"></i>
                     </div>
@@ -36,11 +36,11 @@
                         <p>Attiva notifiche desktop</p>
                     </div>
                 </div>
-                <div class="search-bar">
+                <div class="search-bar">        <!-- Barra di ricerca utenti -->
                     <i class="fas fa-search"></i>
                     <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
-                <div class="recent-chat">
+                <div class="recent-chat">       <!-- Questa sezione include 11 utenti, ognuno ha un immagine profilo, un nome, un messaggio e l'orario  -->
                     <div class="username" data-codice-utente="1">
                         <div class="img-time">
                             <div class="img-profile round-img">
@@ -197,9 +197,9 @@
                     </div>
                 </div>
             </div>
-            <div class="chat">
+            <div class="chat">      <!-- Parte della destra pagina che include: barra superiore utente, chat utente, barra di invio messaggi -->
                 <div class="top-user-chat">
-                    <div class="img-name-lastaccess">
+                    <div class="img-name-lastaccess">       <!-- (sezione sopra la chat) include: l'immagine profilo, il nome e l'ultimo accesso di ogni singolo utente -->
                         <div class="img-time" data-codice-utente="1">
                             <div class="img-profile round-img">
                                 <img src="img/1.png">
@@ -327,7 +327,7 @@
                             <h3>tu?</h3>
                         </div>
                     </div>
-                </div>
+                </div>              <!-- (fino a riga 340) un div 'center-chat' per contenere le conversazioni con ogni utente -->
                 <div class="center-chat not-active" data-codice-utente="2"></div>
                 <div class="center-chat not-active" data-codice-utente="3"></div>
                 <div class="center-chat not-active" data-codice-utente="4"></div>
@@ -338,19 +338,19 @@
                 <div class="center-chat not-active" data-codice-utente="9"></div>
                 <div class="center-chat not-active" data-codice-utente="10"></div>
 
-                <div class="template-box-message-sent">
+                <div class="template-box-message-sent">     <!-- Template generico che viene applicato a ogni messaggio mandato dall'utente -->
                     <div class="template-message-sent">
                         <h3 class="testo-messaggio"></h3>
                     </div>
                 </div>
-                <div class="template-box-message-received">
+                <div class="template-box-message-received">     <!-- Template generico che viene applicato al messaggio (ricevuto) generato casualmente -->
                     <div class="template-message-received">
                         <h3 class="testo-messaggio1">Ok</h3>
                     </div>
                 </div>
 
 
-                <div class="bottom-chat-container">
+                <div class="bottom-chat-container">         <!-- Contiene l'input per inviare un messaggio e 3 icone -->
                     <i class="far fa-smile"></i>
                     <input id="message" type="text" placeholder="Scrivi un messaggio">
                     <i class="fas fa-microphone"></i>
