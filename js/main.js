@@ -41,8 +41,8 @@ $(document).ready(function() {
     });
 
     function scrollDown() {
-        var centerChatDown = $('.center-chat').prop("scrollHeight");
-        $('.center-chat').scrollTop(centerChatDown);
+        var centerChatDown = $('.center-chat.active').prop("scrollHeight");
+        $('.center-chat.active').scrollTop(centerChatDown);
     }
     // function scrollDown() {
     //     var centerChatDown = document.getElementById('center-chat');
