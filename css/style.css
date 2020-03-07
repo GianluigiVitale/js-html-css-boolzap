@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+/* gesione stile generale dell 'input' */
+
 input:focus {
     outline:none;
 }
@@ -13,6 +15,7 @@ input {
     border-radius: 10px;
     letter-spacing: 1px;
 }
+/* fine */
 
 body, input {
     font-family: 'Lato', sans-serif;
@@ -27,7 +30,7 @@ h3 {
     font-size: 20px;
 }
 
-.round-img img {
+.round-img img {    /* Faccio in modo che le immagini siano un cerchio */
     border-radius: 50%;
 }
 
@@ -35,6 +38,7 @@ i:hover {
     cursor: pointer;
 }
 
+/* Stile sfondo pagina */
 .background {
     height: 100vh;
 }
@@ -48,6 +52,7 @@ i:hover {
     background-color: #DCE0DB;
     height: calc(100vh - 125px);
 }
+/* fine */
 
 .container {
     display: flex;
@@ -58,6 +63,7 @@ i:hover {
     height: 90vh;
 }
 
+/* stile per parte sinistra della pagina */
 .list-user {
     width: 35%;
     overflow-y: hidden;
@@ -142,7 +148,7 @@ i:hover {
 
 .recent-chat {
     background-color: #FFFFFF;
-    height: calc(100vh - 5vh - 90px - 90px - 50px - 5vh); /* per calcolare l'altezza per lo scroll sottraggo i 10vh del top e bottom e i 90px dei div */
+    height: calc(100vh - 5vh - 90px - 90px - 50px - 5vh); /* per calcolare l'altezza per lo scroll sottraggo i 10vh del top e bottom e i 90px dei div: 'image-profile-options' e 'notifications' nonche' i 50px del div 'search-bar' */
     overflow-y: auto;
 }
 
@@ -182,9 +188,9 @@ i:hover {
     padding-right: 15px;
     color: #CFD1D3;
 }
+/* fine stile parte sinistra pagina (.list-user) */
 
-
-
+/* inizio stile parte destra pagina (.chat) */
 .chat {
     position: relative;
     width: 65%;
@@ -283,7 +289,7 @@ i:hover {
     display: none;
 }
 
-.active {
-    
+.active {   /* questa classe serve per visualizzare le chat dell'utente quando richiesto */
+
 }
-/*  */
+/* fine stile parte destra pagina (.chat) */
