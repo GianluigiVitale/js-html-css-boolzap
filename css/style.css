@@ -237,6 +237,7 @@ i:hover {
 }
 
 .message-sent, .template-message-sent {
+    position: relative;
     padding: 20px 15px;
     border-radius: 15px;
     background-color: #DAFAC2;
@@ -245,12 +246,41 @@ i:hover {
 }
 
 .message-received, .template-message-received {
+    position: relative;
     padding: 20px 15px;
     border-radius: 15px;
     background-color: white;
     margin-bottom: 15px;
     align-self: flex-start;
 }
+
+.message-sent i, .message-received i, .template-message-received i, .template-message-sent i {
+    /* display: none; */
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    right: 5px;
+}
+
+.message-sent:hover + i {
+    display: block;
+}
+
+.delete-message {
+    text-align: center;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 115%;
+    right: 0;
+    z-index: 9999;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    padding: 25px;
+    border-radius: 20px;
+}
+
 
 .template-box-message-sent, .template-box-message-received {
     display: none;
@@ -299,6 +329,10 @@ i:hover {
 
 .active {   /* questa classe serve per visualizzare le chat dell'utente quando richiesto */
 
+}
+
+.visible {
+    display: block;
 }
 /* fine stile parte destra pagina (.chat) */
 

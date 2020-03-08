@@ -57,6 +57,36 @@ $(document).ready(function() {
         });
     });
 
+    $('.username').click(function() {
+        $('.list-user').addClass('not-active');
+        $('.chat').addClass('visible')
+    });
+
+    $('#left-icon-resp').click(function() {
+        $('.chat').removeClass('visible');
+        $('.list-user').removeClass('not-active')
+    });
+
+
+
+    $(document).on('click', '.message-sent i, .message-received i, .template-message-received i, .template-message-sent i' ,function() {
+        if ($(this).parent().children('.delete-message').is(":visible")) {
+            $(this).parent().children('.delete-message').slideToggle();
+        } else {
+            $('.delete-message').slideUp();
+            $(this).parent().children('.delete-message').slideToggle();
+        }
+
+        $('.delete-message').click(function() {
+            $(this).parent().addClass('not-active');
+        });
+    })
+    // if ($(this).parent(".menu-item").children(".dropdown-menu").is(":visible")) {
+    //     $(this).parent(".menu-item").children(".dropdown-menu").slideToggle();
+    // } else {
+    //     $(".dropdown-menu").slideUp();
+    //     $(this).parent(".menu-item").children(".dropdown-menu").slideToggle();
+    // }
 
     // Funzioni usate
 
@@ -90,14 +120,5 @@ $(document).ready(function() {
     //     centerChatDown.scrollTop = 10000;
     // }
 
-    $('.username').click(function() {
-        $('.list-user').addClass('not-active');
-        $('.chat').addClass('visible')
-    });
-
-    $('#left-icon-resp').click(function() {
-        $('.chat').removeClass('visible');
-        $('.list-user').removeClass('not-active')
-    });
 
 });
