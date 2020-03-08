@@ -307,7 +307,7 @@ i:hover {
     .center-chat {
         padding: 50px 100px 0 100px;
     }
-    
+
     .list-user {
         display: block;
     }
@@ -316,7 +316,15 @@ i:hover {
 @media screen and (min-width: 768px) {
 
     .center-chat {
-        padding: 50px 50px 0 50px;
+        padding: 50px 50px 0 50px !important;
+    }
+
+    .message-received, .message-sent, .template-message-sent, .template-message-received {
+        padding: 15px 10px !important;
+    }
+
+    .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
+        font-size: 18px !important;
     }
 
 }
@@ -354,6 +362,7 @@ i:hover {
 
     .center-chat {
         height: calc(100% - 90px - 80px);
+        padding: 20px 20px 0 20px;
     }
 
     .name-recent-user p {
@@ -362,10 +371,6 @@ i:hover {
 
     .name-recent-user h2 {
         font-size: 18px;
-    }
-
-    .center-chat {
-        padding: 20px 20px 0 20px;
     }
 
     .fa-search, .fa-paperclip {
