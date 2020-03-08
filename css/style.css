@@ -350,6 +350,10 @@ i:hover {
         display: none;
     }
 
+    .center-chat {
+        height: calc(100% - 90px - 80px);
+    }
+
     .name-recent-user p {
         font-size: 12px;
     }
