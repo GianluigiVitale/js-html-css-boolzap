@@ -208,6 +208,13 @@ i:hover {
     border-left: 1px solid lightgray;
 }
 
+#left-icon-resp {
+    font-size: 25px;
+    color: #BABABA;
+    padding: 0 12px;
+    display: none;
+}
+
 .bold p {
     font-weight: 700;
     color: #878E91;
@@ -296,7 +303,7 @@ i:hover {
 /* fine stile parte destra pagina (.chat) */
 
 
-/* @media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
     .list-user {
         display: none;
     }
@@ -312,4 +319,45 @@ i:hover {
     .top-user-chat {
         justify-content: space-around;
     }
-} */
+
+    #left-icon-resp {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .fa-search, .fa-paperclip {
+        display: none;
+    }
+
+    .img-profile {
+        padding: 15px 5px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .name-recent-user p {
+        font-size: 12px;
+    }
+
+    .name-recent-user h2 {
+        font-size: 18px;
+    }
+
+    .center-chat {
+        padding: 20px 20px 0 20px;
+    }
+
+    .message-received, .message-sent {
+        padding: 12px 8px;
+    }
+
+    .message-received h3, .message-sent h3 {
+        font-size: 16px;
+    }
+
+    .bottom-chat-container i {
+        padding: 10px;
+        font-size: 20px;
+    }
+}
