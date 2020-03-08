@@ -258,7 +258,7 @@ i:hover {
     /* display: none; */
     font-size: 20px;
     position: absolute;
-    top: 30%;
+    top: 5%;
     right: 5px;
 }
 
@@ -272,13 +272,20 @@ i:hover {
     display: none;
     position: absolute;
     top: 115%;
-    right: 0;
     z-index: 9999;
     background-color: white;
     color: black;
     font-size: 18px;
     padding: 25px;
     border-radius: 20px;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
 }
 
 
@@ -381,6 +388,9 @@ i:hover {
 }
 
 @media screen and (max-width: 992px) {
+    .message-sent i, .message-received i, .template-message-received i, .template-message-sent i {
+        font-size: 14px;
+    }
 
     .top-user-chat {
         justify-content: space-around;
