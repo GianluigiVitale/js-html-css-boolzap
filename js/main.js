@@ -90,7 +90,14 @@ $(document).ready(function() {
     //     centerChatDown.scrollTop = 10000;
     // }
 
+    $('.click-mobile').click(function() {
+        $('.list-user').addClass('not-active');
+        $('.chat').addClass('visible')
+    });
 
-
+    $('#left-icon-resp').click(function() {
+        $('.chat').removeClass('visible');
+        $('.list-user').removeClass('not-active')
+    });
 
 });

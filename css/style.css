@@ -304,12 +304,9 @@ i:hover {
 
 
 @media screen and (max-width: 992px) {
-    .list-user {
-        display: none;
-    }
 
-    .chat {
-        width: 100%;
+    .notifications {
+        display: none;
     }
 
     .center-chat {
@@ -336,6 +333,23 @@ i:hover {
 }
 
 @media screen and (max-width: 576px) {
+
+    .recent-chat {
+        background-color: #FFFFFF;
+        height: calc(100vh - 90px - 50px); /* per calcolare l'altezza per lo scroll sottraggo i 10vh del top e bottom e i 90px dei div: 'image-profile-options' e 'notifications' nonche' i 50px del div 'search-bar' */
+        overflow-y: auto;
+    }
+
+    .list-user {
+        width: 100%;
+        height: 100%;
+    }
+
+    .chat {
+        width: 100%;
+        display: none;
+    }
+
     .name-recent-user p {
         font-size: 12px;
     }
@@ -348,16 +362,33 @@ i:hover {
         padding: 20px 20px 0 20px;
     }
 
-    .message-received, .message-sent {
+    .message-received, .message-sent, .template-message-sent, .template-message-received {
         padding: 12px 8px;
     }
 
-    .message-received h3, .message-sent h3 {
+    .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
         font-size: 16px;
     }
 
     .bottom-chat-container i {
         padding: 10px;
         font-size: 20px;
+    }
+
+    .container {
+        display: flex;
+        position: absolute;
+        top: 0vh;
+        left: 0%;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .click-mobile {
+
+    }
+
+    .visible {
+        display: block;
     }
 }
