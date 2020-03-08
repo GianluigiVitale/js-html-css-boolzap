@@ -302,7 +302,7 @@ i:hover {
 }
 /* fine stile parte destra pagina (.chat) */
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 993px) {
 
     .center-chat {
         padding: 50px 100px 0 100px;
@@ -313,22 +313,38 @@ i:hover {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
 
     .center-chat {
-        padding: 50px 50px 0 50px !important;
+        padding: 50px 50px 0 50px;
     }
 
     .message-received, .message-sent, .template-message-sent, .template-message-received {
-        padding: 15px 10px !important;
+        padding: 15px 10px;
     }
 
     .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
-        font-size: 18px !important;
+        font-size: 18px;
     }
 
 }
 
+@media screen and (max-width: 768px) {
+
+    .center-chat {
+        height: calc(100% - 90px - 80px);
+        padding: 20px 20px 0 20px;
+    }
+
+    .message-received, .message-sent, .template-message-sent, .template-message-received {
+        padding: 12px 8px;
+    }
+
+    .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
+        font-size: 16px;
+    }
+
+}
 
 @media screen and (max-width: 992px) {
 
@@ -346,7 +362,7 @@ i:hover {
 
     .recent-chat {
         background-color: #FFFFFF;
-        height: calc(100vh - 90px - 50px); /* per calcolare l'altezza per lo scroll sottraggo i 10vh del top e bottom e i 90px dei div: 'image-profile-options' e 'notifications' nonche' i 50px del div 'search-bar' */
+        height: calc(100vh - 90px - 50px);
         overflow-y: auto;
     }
 
@@ -360,10 +376,6 @@ i:hover {
         display: none;
     }
 
-    .center-chat {
-        height: calc(100% - 90px - 80px);
-        padding: 20px 20px 0 20px;
-    }
 
     .name-recent-user p {
         font-size: 12px;
@@ -377,13 +389,6 @@ i:hover {
         display: none;
     }
 
-    .message-received, .message-sent, .template-message-sent, .template-message-received {
-        padding: 12px 8px;
-    }
-
-    .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
-        font-size: 16px;
-    }
 
     .bottom-chat-container i {
         padding: 10px;
