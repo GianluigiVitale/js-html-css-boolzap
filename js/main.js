@@ -90,7 +90,7 @@ $(document).ready(function() {
     //     centerChatDown.scrollTop = 10000;
     // }
 
-    $('.click-mobile').click(function() {
+    $('.username').click(function() {
         $('.list-user').addClass('not-active');
         $('.chat').addClass('visible')
     });

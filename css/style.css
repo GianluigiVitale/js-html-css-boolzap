@@ -302,16 +302,27 @@ i:hover {
 }
 /* fine stile parte destra pagina (.chat) */
 
+@media screen and (min-width: 992px) {
 
-@media screen and (max-width: 992px) {
-
-    .notifications {
-        display: none;
+    .center-chat {
+        padding: 50px 100px 0 100px;
     }
+    
+    .list-user {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) {
 
     .center-chat {
         padding: 50px 50px 0 50px;
     }
+
+}
+
+
+@media screen and (max-width: 992px) {
 
     .top-user-chat {
         justify-content: space-around;
@@ -320,19 +331,10 @@ i:hover {
     #left-icon-resp {
         display: block;
     }
-}
 
-@media screen and (max-width: 768px) {
-    .fa-search, .fa-paperclip {
+    .notifications {
         display: none;
     }
-
-    .img-profile {
-        padding: 15px 5px;
-    }
-}
-
-@media screen and (max-width: 576px) {
 
     .recent-chat {
         background-color: #FFFFFF;
@@ -366,6 +368,10 @@ i:hover {
         padding: 20px 20px 0 20px;
     }
 
+    .fa-search, .fa-paperclip {
+        display: none;
+    }
+
     .message-received, .message-sent, .template-message-sent, .template-message-received {
         padding: 12px 8px;
     }
@@ -386,10 +392,6 @@ i:hover {
         left: 0%;
         width: 100%;
         height: 100vh;
-    }
-
-    .click-mobile {
-
     }
 
     .visible {
