@@ -1,54 +1,4 @@
 $(document).ready(function() {
-    $('.fa-paper-plane').click(function(){
-        var messaggioInput = $('#message').val();
-        if (messaggioInput.trim().length > 0) {
-            $('#message').val('');
-            var messaggio = $('.template-box-message-sent .template-message-sent').clone();
-            messaggio.children('.testo-messaggio').text(messaggioInput);
-            $('.center-chat.active').append(messaggio);
-
-            checkInputMessage(); //Eseguo nuovamente il controllo per rimuovere il paper-plane
-            setTimeout(messageOk, 1000);
-        }
-    });
-
-
-    function checkInputMessage() {  //Funzione che controlla se l'input ha un messaggio e fa apparire e scomparire le icone
-        var messaggioInput = $('#message').val();
-
-        if (messaggioInput.length > 0) {
-            $('.fa-paper-plane').removeClass('not-active')
-            $('.fa-microphone').addClass('not-active')
-        } else {
-            $('.fa-microphone').removeClass('not-active')
-            $('.fa-paper-plane').addClass('not-active')
-        }
-    }
-
-    function messageOk() {
-        var messaggio1 = $('.template-box-message-received .template-message-received').clone();
-        messaggio1.children('.testo-messaggio').text('Ok');
-        $('.center-chat.active').append(messaggio1);
-        scrollDown();
-    }
-
-    $("#message").keyup(function(event) {    // quando viene rilasciato un tasto dentro #message
-        checkInputMessage();
-        if (event.keyCode === 13) {             // se si preme il tasto invio
-            $(".fa-paper-plane").click();
-            scrollDown();
-        }
-    });
-
-    function scrollDown() {         // funzione che serve per fare lo scroll automatico all'invio o ricezione di un messaggio
-        var centerChatDown = $('.center-chat.active').prop("scrollHeight");
-        $('.center-chat.active').scrollTop(centerChatDown);
-    }
-    // function scrollDown() {
-    //     var centerChatDown = document.getElementById('center-chat');
-    //     centerChatDown.scrollTop = 10000;
-    // }
-
 
     $('#search-bar').keyup(function(event){         // quando viene rilasciato un tasto dentro #search-bar
         var filtroCaratteri = $(this).val().toLowerCase();      // Variabile che salva il valore dell'input e lo tramuta in minuscolo
@@ -63,15 +13,31 @@ $(document).ready(function() {
         })
     });
 
-    // $('#message').focus(function(){
-    //     $('.fa-paper-plane').removeClass('not-active');
-    //     $('.fa-microphone').addClass('not-active');
-    // }).blur(function(){
-    //     $('.fa-paper-plane').addClass('not-active');
-    //     $('.fa-microphone').removeClass('not-active');
-    // });
 
-    $('.username').click(function() {       // al click del div (.username)
+    $('.fa-paper-plane').click(function(){          // al click dell'icona
+        var messaggioInput = $('#message').val();
+        if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto, mando un messaggio in chat
+            $('#message').val('');
+            var messaggio = $('.template-box-message-sent .template-message-sent').clone();
+            messaggio.children('.testo-messaggio').text(messaggioInput);
+            $('.center-chat.active').append(messaggio);
+
+            checkInputMessage(); //Eseguo nuovamente il controllo per rimuovere il paper-plane
+            setTimeout(messageOk, 1000);    // dopo 1 secondo, evoco la funzione 'messageOk'
+        }
+    });
+
+
+    $("#message").keyup(function(event) {    // quando viene rilasciato un tasto dentro #message
+        checkInputMessage();
+        if (event.keyCode === 13) {             // se si preme il tasto invio
+            $(".fa-paper-plane").click();
+            scrollDown();
+        }
+    });
+
+
+    $('.username').click(function() {       // al click del div (.username) cambio il nome sopra la chat e la chat
         var nomeUtenteClk = $(this).find('.name-recent-user h3').text();    // Variabile che salva il nome dell'utente come testo.
         var utente = $(this).data('codiceUtente');                          // Variabile che salva il codice dell'utente.
         $('.img-name-lastaccess .img-time').each(function() {               // Ciclo il div (posizionato sopra la chat utente) che contiene l'immagine, il nome utente e l'ultimo accesso
@@ -91,6 +57,38 @@ $(document).ready(function() {
         });
     });
 
+
+    // Funzioni usate
+
+
+    function checkInputMessage() {  //Funzione che controlla se l'input ha un messaggio e fa apparire e scomparire le icone
+        var messaggioInput = $('#message').val();
+
+        if (messaggioInput.length > 0) {
+            $('.fa-paper-plane').removeClass('not-active')
+            $('.fa-microphone').addClass('not-active')
+        } else {
+            $('.fa-microphone').removeClass('not-active')
+            $('.fa-paper-plane').addClass('not-active')
+        }
+    }
+
+    function messageOk() {          // funzione che serve per ricevere un messaggio con testo 'ok'
+        var messaggio1 = $('.template-box-message-received .template-message-received').clone();
+        messaggio1.children('.testo-messaggio').text('Ok');
+        $('.center-chat.active').append(messaggio1);
+        scrollDown();
+    }
+
+
+    function scrollDown() {         // funzione che serve per fare lo scroll automatico (all'invio o ricezione di un messaggio)
+        var centerChatDown = $('.center-chat.active').prop("scrollHeight");
+        $('.center-chat.active').scrollTop(centerChatDown);
+    }
+    // function scrollDown() {
+    //     var centerChatDown = document.getElementById('center-chat');
+    //     centerChatDown.scrollTop = 10000;
+    // }
 
 
 

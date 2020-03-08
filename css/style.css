@@ -190,6 +190,7 @@ i:hover {
 }
 /* fine stile parte sinistra pagina (.list-user) */
 
+
 /* inizio stile parte destra pagina (.chat) */
 .chat {
     position: relative;
@@ -293,3 +294,22 @@ i:hover {
 
 }
 /* fine stile parte destra pagina (.chat) */
+
+
+/* @media screen and (max-width: 992px) {
+    .list-user {
+        display: none;
+    }
+
+    .chat {
+        width: 100%;
+    }
+
+    .center-chat {
+        padding: 50px 50px 0 50px;
+    }
+
+    .top-user-chat {
+        justify-content: space-around;
+    }
+} */
