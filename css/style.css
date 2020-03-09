@@ -228,15 +228,23 @@ i:hover {
     overflow-y: auto;
 }
 
-.box-message-sent, .template-box-message-sent {
+.box-message-sent, .template-box-message {
     align-self: flex-end;
 }
 
-.box-message-received, .template-box-message-received {
+.box-message-received, .template-box-message {
     align-self: flex-start;
 }
 
-.message, .template-message {
+.right-align {
+    align-self: flex-end;
+}
+
+.left-align {
+    align-self: flex-start;
+}
+
+.message {
     position: relative;
     padding: 20px 15px;
     border-radius: 15px;
@@ -253,7 +261,7 @@ i:hover {
     align-self: flex-start;
 }
 
-.message i, .template-message i {
+.message i {
     display: none;
     font-size: 20px;
     position: absolute;
@@ -262,7 +270,7 @@ i:hover {
     right: 5px;
 }
 
-.message:hover .fa-chevron-down, .template-message:hover .fa-chevron-down {
+.message:hover .fa-chevron-down {
     display: block;
 }
 
@@ -289,9 +297,8 @@ i:hover {
     right: 0;
 }
 
-.template-box-message-sent, .template-box-message-received {
+.template-box-message {
     display: none;
-    margin-bottom: 15px;
 }
 
 .bottom-chat-container {
@@ -357,11 +364,11 @@ i:hover {
         padding: 50px 50px 0 50px;
     }
 
-    .message, .template-message {
+    .message {
         padding: 15px 10px;
     }
 
-    .message h3, .template-message h3 {
+    .message h3 {
         font-size: 18px;
     }
 
@@ -374,18 +381,18 @@ i:hover {
         padding: 20px 20px 0 20px;
     }
 
-    .message, .template-message {
+    .message {
         padding: 12px 8px;
     }
 
-    .message h3, .template-message h3 {
+    .message h3 {
         font-size: 16px;
     }
 
 }
 
 @media screen and (max-width: 992px) {
-    .message i, .template-message i {
+    .message i {
         font-size: 14px;
     }
 

@@ -1,33 +1,41 @@
 $(document).ready(function() {
 
-    $('#search-bar').keyup(function(event){         // quando viene rilasciato un tasto dentro #search-bar
+    $('#search-bar').keyup(function(event){                 // quando viene rilasciato un tasto dentro #search-bar
         var filtroCaratteri = $(this).val().toLowerCase();      // Variabile che salva il valore dell'input e lo tramuta in minuscolo
-        $('.username').each(function(){             // ciclo tutti gli '.username'
-            var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();     // variabile che salva il nome dell'username ciclato come testo e lo trasforma in minuscolo
-            // console.log(nomeUtente);
-            if (nomeUtente.includes(filtroCaratteri)) {     // se la variabile nomeUtente e' inclusa in filtroCaratteri, mostro il nome utente altrimenti lo nascondo
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        })
+        ricercaUtente(filtroCaratteri);
     });
+
+    // altro modo search bar
+    // $('#search-bar').keyup(function(event){
+    //     var that = $(this);
+    //     ricercaUtente(that);
+    //     console.log('richiamo funzione');
+    // });
+    // function ricercaUtente(that) {
+    //     var filtroCaratteri = that.val().toLowerCase();
+    //     console.log('sono dentro');
+    //     $('.username').each(function(){
+    //         var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();
+    //         if (nomeUtente.includes(filtroCaratteri)) {
+    //             $(this).show();
+    //         } else {
+    //             $(this).hide();
+    //         }
+    //     });
+    // }
 
 
     $('.fa-paper-plane').click(function(){          // al click dell'icona
         var messaggioInput = $('#message').val();
         if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto, mando un messaggio in chat
             $('#message').val('');
-            var messaggio = $('.template-box-message-sent .template-message').clone();
-            messaggio.find('.testo-messaggio').text(messaggioInput);
-            messaggio.addClass('sent');
-            $('.center-chat.active').append(messaggio);
-
-            checkInputMessage(); //Eseguo nuovamente il controllo per rimuovere il paper-plane
-            setTimeout(messageOk, 1000);    // dopo 1 secondo, evoco la funzione 'messageOk'
+            invioMessaggioConScrollDown(messaggioInput, 'sent');
+            checkInputMessage();                                //Eseguo nuovamente il controllo per rimuovere il paper-plane
+            setTimeout(function() {
+                invioMessaggioConScrollDown('ok', 'received');
+            }, 1000);
         }
     });
-
 
     $("#message").keyup(function(event) {    // quando viene rilasciato un tasto dentro #message
         checkInputMessage();
@@ -58,19 +66,20 @@ $(document).ready(function() {
         });
     });
 
-    $('.username').click(function() {
+
+    // serve per la visualizzazione sotto i 992px
+    $('.username').click(function() {           // al clic di un 'username' si nasconde 'list-user' e si mostra la chat
         $('.list-user').addClass('not-active');
         $('.chat').addClass('visible')
     });
-
-    $('#left-icon-resp').click(function() {
+    $('#left-icon-resp').click(function() {     // al click dell'icona '#left-icon-resp' si nasconde la chat e si mostra 'list-user'
         $('.chat').removeClass('visible');
         $('.list-user').removeClass('not-active')
     });
+    // fine under 992px
 
 
-
-    $(document).on('click', '.message i, .template-message i' ,function() {
+    $(document).on('click', '.message i' ,function() {  // serve per far apparire al click dell'icona 'chevron down' il menu a tendina 'elimina messaggio' anche sui messaggi mandati dinamicamente
         if ($(this).parent().children('.delete-message').is(":visible")) {
             $(this).parent().children('.delete-message').slideToggle();
         } else {
@@ -78,19 +87,36 @@ $(document).ready(function() {
             $(this).parent().children('.delete-message').slideToggle();
         }
 
-        $('.delete-message').click(function() {
+        $('.delete-message').click(function() {     // al click del menu 'delete message' il container del messaggio viene nascosto
             $(this).parent().addClass('not-active');
         });
     })
-    // if ($(this).parent(".menu-item").children(".dropdown-menu").is(":visible")) {
-    //     $(this).parent(".menu-item").children(".dropdown-menu").slideToggle();
-    // } else {
-    //     $(".dropdown-menu").slideUp();
-    //     $(this).parent(".menu-item").children(".dropdown-menu").slideToggle();
-    // }
+
 
     // Funzioni usate
 
+    function invioMessaggioConScrollDown(messaggioDaInviare, classeDaAggiungere) {
+        if (classeDaAggiungere == 'sent') {
+            var messaggio = $('.template-box-message.right-align .message').clone();
+        } else {
+            var messaggio = $('.template-box-message.left-align .message').clone();
+        }
+        messaggio.find('.testo-messaggio').text(messaggioDaInviare);
+        messaggio.addClass(classeDaAggiungere);
+        $('.center-chat.active').append(messaggio);
+        scrollDown();
+    }
+
+    function ricercaUtente(filtroCaratteri) {
+        $('.username').each(function(){
+            var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();
+            if (nomeUtente.includes(filtroCaratteri)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
 
     function checkInputMessage() {  //Funzione che controlla se l'input ha un messaggio e fa apparire e scomparire le icone
         var messaggioInput = $('#message').val();
@@ -104,23 +130,9 @@ $(document).ready(function() {
         }
     }
 
-    function messageOk() {          // funzione che serve per ricevere un messaggio con testo 'ok'
-        var messaggio1 = $('.template-box-message-received .template-message').clone();
-        messaggio1.children('.testo-messaggio').text('Ok');
-        messaggio1.addClass('received')
-        $('.center-chat.active').append(messaggio1);
-        scrollDown();
-    }
-
-
     function scrollDown() {         // funzione che serve per fare lo scroll automatico (all'invio o ricezione di un messaggio)
         var centerChatDown = $('.center-chat.active').prop("scrollHeight");
         $('.center-chat.active').scrollTop(centerChatDown);
     }
-    // function scrollDown() {
-    //     var centerChatDown = document.getElementById('center-chat');
-    //     centerChatDown.scrollTop = 10000;
-    // }
-
 
 });
