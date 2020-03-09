@@ -255,16 +255,18 @@ i:hover {
 }
 
 .message-sent i, .message-received i, .template-message-received i, .template-message-sent i {
-    /* display: none; */
+    display: none;
     font-size: 20px;
     position: absolute;
+    color: gray;
     top: 5%;
     right: 5px;
 }
 
-.message-sent:hover + i {
+.message-sent:hover .fa-chevron-down, .message-received:hover .fa-chevron-down, .template-message-sent:hover .fa-chevron-down, .template-message-received:hover .fa-chevron-down {
     display: block;
 }
+
 
 .delete-message {
     text-align: center;
@@ -338,9 +340,6 @@ i:hover {
 
 }
 
-.visible {
-    display: block;
-}
 /* fine stile parte destra pagina (.chat) */
 
 @media screen and (min-width: 993px) {
