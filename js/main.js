@@ -18,8 +18,9 @@ $(document).ready(function() {
         var messaggioInput = $('#message').val();
         if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto, mando un messaggio in chat
             $('#message').val('');
-            var messaggio = $('.template-box-message-sent .template-message-sent').clone();
-            messaggio.children('.testo-messaggio').text(messaggioInput);
+            var messaggio = $('.template-box-message-sent .template-message').clone();
+            messaggio.find('.testo-messaggio').text(messaggioInput);
+            messaggio.addClass('sent');
             $('.center-chat.active').append(messaggio);
 
             checkInputMessage(); //Eseguo nuovamente il controllo per rimuovere il paper-plane
@@ -69,7 +70,7 @@ $(document).ready(function() {
 
 
 
-    $(document).on('click', '.message-sent i, .message-received i, .template-message-received i, .template-message-sent i' ,function() {
+    $(document).on('click', '.message i, .template-message i' ,function() {
         if ($(this).parent().children('.delete-message').is(":visible")) {
             $(this).parent().children('.delete-message').slideToggle();
         } else {
@@ -104,8 +105,9 @@ $(document).ready(function() {
     }
 
     function messageOk() {          // funzione che serve per ricevere un messaggio con testo 'ok'
-        var messaggio1 = $('.template-box-message-received .template-message-received').clone();
+        var messaggio1 = $('.template-box-message-received .template-message').clone();
         messaggio1.children('.testo-messaggio').text('Ok');
+        messaggio1.addClass('received')
         $('.center-chat.active').append(messaggio1);
         scrollDown();
     }

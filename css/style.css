@@ -236,25 +236,24 @@ i:hover {
     align-self: flex-start;
 }
 
-.message-sent, .template-message-sent {
+.message, .template-message {
     position: relative;
     padding: 20px 15px;
     border-radius: 15px;
-    background-color: #DAFAC2;
-    align-self: flex-end;
     margin-bottom: 15px;
 }
 
-.message-received, .template-message-received {
-    position: relative;
-    padding: 20px 15px;
-    border-radius: 15px;
+.sent {
+    background-color: #DAFAC2;
+    align-self: flex-end;
+}
+
+.received {
     background-color: white;
-    margin-bottom: 15px;
     align-self: flex-start;
 }
 
-.message-sent i, .message-received i, .template-message-received i, .template-message-sent i {
+.message i, .template-message i {
     display: none;
     font-size: 20px;
     position: absolute;
@@ -263,7 +262,7 @@ i:hover {
     right: 5px;
 }
 
-.message-sent:hover .fa-chevron-down, .message-received:hover .fa-chevron-down, .template-message-sent:hover .fa-chevron-down, .template-message-received:hover .fa-chevron-down {
+.message:hover .fa-chevron-down, .template-message:hover .fa-chevron-down {
     display: block;
 }
 
@@ -289,7 +288,6 @@ i:hover {
 .right {
     right: 0;
 }
-
 
 .template-box-message-sent, .template-box-message-received {
     display: none;
@@ -348,7 +346,7 @@ i:hover {
         padding: 50px 100px 0 100px;
     }
 
-    .list-user {
+    .list-user { /*  questo serve perche' se no sopra i 993px quando clicco .username diventa display none (dato che nel main.js gli ho gli ho detto che al click del '.username' 'list-user' sparisce per il responsive)*/
         display: block;
     }
 }
@@ -359,11 +357,11 @@ i:hover {
         padding: 50px 50px 0 50px;
     }
 
-    .message-received, .message-sent, .template-message-sent, .template-message-received {
+    .message, .template-message {
         padding: 15px 10px;
     }
 
-    .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
+    .message h3, .template-message h3 {
         font-size: 18px;
     }
 
@@ -376,18 +374,18 @@ i:hover {
         padding: 20px 20px 0 20px;
     }
 
-    .message-received, .message-sent, .template-message-sent, .template-message-received {
+    .message, .template-message {
         padding: 12px 8px;
     }
 
-    .message-received h3, .message-sent h3, .template-message-sent h3, .template-message-received h3 {
+    .message h3, .template-message h3 {
         font-size: 16px;
     }
 
 }
 
 @media screen and (max-width: 992px) {
-    .message-sent i, .message-received i, .template-message-received i, .template-message-sent i {
+    .message i, .template-message i {
         font-size: 14px;
     }
 
