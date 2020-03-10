@@ -49,12 +49,12 @@ $(document).ready(function() {
     $('.username').click(function() {       // al click del div (.username) cambio il nome sopra la chat e la chat
         var nomeUtenteClk = $(this).find('.name-recent-user h3').text();    // Variabile che salva il nome dell'utente come testo.
         var utente = $(this).data('codiceUtente');                          // Variabile che salva il codice dell'utente.
-        $('.img-name-lastaccess .img-time').each(function() {               // Ciclo il div (posizionato sopra la chat utente) che contiene l'immagine, il nome utente e l'ultimo accesso
-            if (utente == $(this).data('codiceUtente')) {                   // Se il codice dell'utente cliccato e' uguale al codice utente (ciclato sopra)
-                $('.img-name-lastaccess .img-time').addClass('not-active');         // aggiungo a tutti la classe 'not-active'
-                $(this).removeClass('not-active');                                  // rimuovo la classe 'not-active' esattamente (this) a questo div .img-time
-            }
-        });
+        var thisAvatar = $(this).find('img').attr('src');                   // Creo una variabile con il valore del src dell'immagine dell'avatar cliccato
+        var thisName = $(this).find('h3').text();                           // Variabile con il Nome dell'utente cliccato
+        var thisHour = $(this).find('.last-chat-user p').text();            // Variabile con l'orario dell'ultimo accesso dell'utente cliccato
+        $('.img-name-lastaccess img').attr('src', thisAvatar);              // Assegno i valori appena dichiarati così da avere in alto sempre i dati della chat premuta
+        $('.name-recent-user1 h2').text(thisName);
+        $('.name-recent-user1 p').text('Ultimo accesso oggi alle ' + thisHour);
 
         // allo stesso modo come cambio il nome dell'utente cliccato sopra la chat, cosi' devo mostrare la sua chat
 

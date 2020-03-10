@@ -178,7 +178,7 @@ i:hover {
     width: 65px;
 }
 
-.name-recent-user p {
+.name-recent-user p, .name-recent-user1 p {
     color: #BEC1C3;
     padding-top: 5px;
 }
@@ -425,11 +425,11 @@ i:hover {
     }
 
 
-    .name-recent-user p {
+    .name-recent-user p, .name-recent-user1 p {
         font-size: 12px;
     }
 
-    .name-recent-user h2 {
+    .name-recent-user h2, .name-recent-user1 h2 {
         font-size: 18px;
     }
 
