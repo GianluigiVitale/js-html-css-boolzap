@@ -60,8 +60,8 @@ $(document).ready(function() {
 
         $('.center-chat').each(function() {                                 // ciclo il div .center-chat
             if (utente == ($(this).data('codiceUtente'))) {                     // Se il codice dell'utente cliccato e' uguale al codice utente (ciclato sopra)
-                $('.center-chat').addClass('not-active').removeClass('active')      // a tutti i '.center-chat' aggiungo la classe 'not-active' e rimuovo la classe 'active'
-                $(this).removeClass('not-active').addClass('active')                // rimuovo la classe 'not-active' esattamente (this) a questo div '.center-chat' e gli aggiungo la classe active
+                $('.center-chat').removeClass('active')      // a tutti i '.center-chat' aggiungo la classe 'not-active' e rimuovo la classe 'active'
+                $(this).addClass('active')                // rimuovo la classe 'not-active' esattamente (this) a questo div '.center-chat' e gli aggiungo la classe active
             }
         });
     });

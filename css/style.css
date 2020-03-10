@@ -222,6 +222,7 @@ i:hover {
 
 .center-chat {
     display: flex;
+    display: none;
     flex-direction: column;
     height: calc(100% - 90px - 80px);
     padding: 50px 100px 0 100px;
@@ -342,7 +343,7 @@ i:hover {
 }
 
 .active {   /* questa classe serve per visualizzare le chat dell'utente quando richiesto */
-
+    display: flex;
 }
 
 /* fine stile parte destra pagina (.chat) */
