@@ -47,7 +47,6 @@ $(document).ready(function() {
 
 
     $('.username').click(function() {       // al click del div (.username) cambio il nome sopra la chat e la chat
-        var nomeUtenteClk = $(this).find('.name-recent-user h3').text();    // Variabile che salva il nome dell'utente come testo.
         var utente = $(this).data('codiceUtente');                          // Variabile che salva il codice dell'utente.
         var thisAvatar = $(this).find('img').attr('src');                   // Creo una variabile con il valore del src dell'immagine dell'avatar cliccato
         var thisName = $(this).find('h3').text();                           // Variabile con il Nome dell'utente cliccato
@@ -87,27 +86,27 @@ $(document).ready(function() {
             $(this).parent().children('.delete-message').slideToggle();
         }
 
-        $('.delete-message').click(function() {     // al click del menu 'delete message' il container del messaggio viene nascosto
-            $(this).parent().addClass('not-active');
+        $('.delete-message').click(function() {     // al click del menu 'delete message' il container del messaggio viene eliminato
+            $(this).parent().remove();
         });
     })
 
 
     // Funzioni usate
 
-    function invioMessaggioConScrollDown(messaggioDaInviare, classeDaAggiungere) {
-        if (classeDaAggiungere == 'sent') {
+    function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass) { // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare
+        if (sendOrReceiveClass == 'sent') {
             var messaggio = $('.template-box-message.right-align .message').clone();
         } else {
             var messaggio = $('.template-box-message.left-align .message').clone();
         }
         messaggio.find('.testo-messaggio').text(messaggioDaInviare);
-        messaggio.addClass(classeDaAggiungere);
+        messaggio.addClass(sendOrReceiveClass);
         $('.center-chat.active').append(messaggio);
         scrollDown();
     }
 
-    function ricercaUtente(filtroCaratteri) {
+    function ricercaUtente(filtroCaratteri) {   // Solo se i caratteri digitati nell'input sono inclusi nel nome dell'utente allora lo mostra
         $('.username').each(function(){
             var nomeUtente = $(this).find('.name-recent-user h3').text().toLowerCase();
             if (nomeUtente.includes(filtroCaratteri)) {
