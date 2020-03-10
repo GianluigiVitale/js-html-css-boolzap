@@ -25,11 +25,11 @@ $(document).ready(function() {
     // }
 
 
-    $('.fa-paper-plane').click(function(){          // al click dell'icona
+    $('.fa-paper-plane').click(function(){          // al click dell'icona paper-plane
         var messaggioInput = $('#message').val();
-        if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto, mando un messaggio in chat
-            $('#message').val('');
-            invioMessaggioConScrollDown(messaggioInput, 'sent');
+        if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto
+            $('#message').val('');                      // resetto il valore dell'input
+            invioMessaggioConScrollDown(messaggioInput, 'sent');    // mando un messaggio in chat
             checkInputMessage();                                //Eseguo nuovamente il controllo per rimuovere il paper-plane
             setTimeout(function() {
                 invioMessaggioConScrollDown('ok', 'received');
@@ -47,7 +47,6 @@ $(document).ready(function() {
 
 
     $('.username').click(function() {       // al click del div (.username) cambio il nome sopra la chat e la chat
-        var utente = $(this).data('codiceUtente');                          // Variabile che salva il codice dell'utente.
         var thisAvatar = $(this).find('img').attr('src');                   // Creo una variabile con il valore del src dell'immagine dell'avatar cliccato
         var thisName = $(this).find('h3').text();                           // Variabile con il Nome dell'utente cliccato
         var thisHour = $(this).find('.last-chat-user p').text();            // Variabile con l'orario dell'ultimo accesso dell'utente cliccato
@@ -57,17 +56,18 @@ $(document).ready(function() {
 
         // allo stesso modo come cambio il nome dell'utente cliccato sopra la chat, cosi' devo mostrare la sua chat
 
+        var utente = $(this).data('codiceUtente');                          // Variabile che salva il codice dell'utente.
         $('.center-chat').each(function() {                                 // ciclo il div .center-chat
             if (utente == ($(this).data('codiceUtente'))) {                     // Se il codice dell'utente cliccato e' uguale al codice utente (ciclato sopra)
-                $('.center-chat').removeClass('active')      // a tutti i '.center-chat' aggiungo la classe 'not-active' e rimuovo la classe 'active'
-                $(this).addClass('active')                // rimuovo la classe 'not-active' esattamente (this) a questo div '.center-chat' e gli aggiungo la classe active
+                $('.center-chat').removeClass('active')      // a tutti i '.center-chat' rimuovo la classe 'active'
+                $(this).addClass('active')                   // esattamente (this) a questo div '.center-chat' e gli aggiungo la classe active
             }
         });
     });
 
 
     // serve per la visualizzazione sotto i 992px
-    $('.username').click(function() {           // al clic di un 'username' si nasconde 'list-user' e si mostra la chat
+    $('.username').click(function() {           // al clic di un 'username' si nasconde 'list-user' e si mostra la chat.   N.B. sopra i 992px il list-user rimane visible al click di .username SOLO perche' ho messo nella media query display block
         $('.list-user').addClass('not-active');
         $('.chat').addClass('visible')
     });
@@ -85,13 +85,11 @@ $(document).ready(function() {
             $('.delete-message').slideUp();
             $(this).parent().children('.delete-message').slideToggle();
         }
+    });
 
-        $('.delete-message').click(function() {     // al click del menu 'delete message' il container del messaggio viene eliminato
-            $(this).parent().remove();
-        });
-    })
-
-
+    $(document).on('click', '.delete-message' ,function() { // creo un altro document.on perche' se lo metto dentro al precedente non esegue l'evento solo una volta
+        $(this).parent().remove();
+    });
     // Funzioni usate
 
     function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass) { // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare

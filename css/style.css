@@ -345,8 +345,10 @@ i:hover {
 .active {   /* questa classe serve per visualizzare le chat dell'utente quando richiesto */
     display: flex;
 }
-
 /* fine stile parte destra pagina (.chat) */
+
+
+/* MEDIA QUERY */
 
 @media screen and (min-width: 993px) {
 
