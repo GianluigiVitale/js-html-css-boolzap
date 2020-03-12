@@ -90,13 +90,18 @@ $(document).ready(function() {
     $(document).on('click', '.delete-message' ,function() { // creo un altro document.on perche' se lo metto dentro al precedente non esegue l'evento solo una volta
         $(this).parent().remove();
     });
+
+
     // Funzioni usate
+
 
     function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass) { // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare
         if (sendOrReceiveClass == 'sent') {
-            var messaggio = $('.template-box-message.right-align .message').clone();
+            var messaggio = $('.template-box-message .message').clone();
+            messaggio.addClass('right-align').addClass('sent');
         } else {
-            var messaggio = $('.template-box-message.left-align .message').clone();
+            var messaggio = $('.template-box-message .message').clone();
+            messaggio.addClass('left-align').addClass('received');
         }
         messaggio.find('.testo-messaggio').text(messaggioDaInviare);
         messaggio.addClass(sendOrReceiveClass);
