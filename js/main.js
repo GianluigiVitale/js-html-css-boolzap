@@ -41,7 +41,6 @@ $(document).ready(function() {
         checkInputMessage();
         if (event.keyCode === 13) {             // se si preme il tasto invio
             $(".fa-paper-plane").click();
-            scrollDown();
         }
     });
 
@@ -95,19 +94,26 @@ $(document).ready(function() {
     // Funzioni usate
 
 
-    function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass) { // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare
-        if (sendOrReceiveClass == 'sent') {
-            var messaggio = $('.template-box-message .message').clone();
-            messaggio.addClass('right-align').addClass('sent');
-        } else {
-            var messaggio = $('.template-box-message .message').clone();
-            messaggio.addClass('left-align').addClass('received');
+    var source = $('#messaggio-template').html();              // clono il template messaggio
+    var template = Handlebars.compile(source);                 // do in pasto ad Handlebars il template clonato
+
+    function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass) {  // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare
+        var datiMessaggio = {
+            testoMessaggio: messaggioDaInviare,
+            sentReceived: sendOrReceiveClass,
+            sxODx: 'null'
         }
-        messaggio.find('.testo-messaggio').text(messaggioDaInviare);
-        messaggio.addClass(sendOrReceiveClass);
-        $('.center-chat.active').append(messaggio);
+        if (sendOrReceiveClass == 'sent') {
+            datiMessaggio.sxODx = 'right';
+        } else {
+            datiMessaggio.sxODx = 'left';
+        }
+
+        var templateMessaggio = template(datiMessaggio);
+        $('.center-chat.active').append(templateMessaggio);
         scrollDown();
     }
+
 
     function ricercaUtente(filtroCaratteri) {   // Solo se i caratteri digitati nell'input sono inclusi nel nome dell'utente allora lo mostra
         $('.username').each(function(){

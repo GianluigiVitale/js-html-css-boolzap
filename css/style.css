@@ -229,14 +229,6 @@ i:hover {
     overflow-y: auto;
 }
 
-.box-message-sent, .template-box-message {
-    align-self: flex-end;
-}
-
-.box-message-received, .template-box-message {
-    align-self: flex-start;
-}
-
 .right-align {
     align-self: flex-end;
 }
@@ -296,10 +288,6 @@ i:hover {
 
 .right {
     right: 0;
-}
-
-.template-box-message {
-    display: none;
 }
 
 .bottom-chat-container {

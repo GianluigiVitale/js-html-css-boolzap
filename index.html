@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js" charset="utf-8"></script>
         <script src="js/main.js" charset="utf-8"></script>
     </head>
     <body>
@@ -218,33 +219,25 @@
                     </div>
                 </div>
                 <div class="center-chat active" data-codice-utente="1">
-                    <div class="box-message-sent">
-                        <div class="message sent">
-                            <i class="fas fa-chevron-down"></i>
-                            <div class="delete-message right">Elimina Messaggio</div>
-                            <h3>come stai?</h3>
-                        </div>
+                    <div class="message sent">
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="delete-message right">Elimina Messaggio</div>
+                        <h3>come stai?</h3>
                     </div>
-                    <div class="box-message-sent">
-                        <div class="message sent">
-                            <i class="fas fa-chevron-down"></i>
-                            <div class="delete-message right">Elimina Messaggio</div>
-                            <h3>tutto bene?</h3>
-                        </div>
+                    <div class="message sent">
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="delete-message right">Elimina Messaggio</div>
+                        <h3>tutto bene?</h3>
                     </div>
-                    <div class="box-message-received">
-                        <div class="message received">
-                            <i class="fas fa-chevron-down"></i>
-                            <div class="delete-message left">Elimina Messaggio</div>
-                            <h3>Ciao, tutto ok</h3>
-                        </div>
+                    <div class="message received">
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="delete-message left">Elimina Messaggio</div>
+                        <h3>Ciao, tutto ok</h3>
                     </div>
-                    <div class="box-message-received">
-                        <div class="message received">
-                            <i class="fas fa-chevron-down"></i>
-                            <div class="delete-message left">Elimina Messaggio</div>
-                            <h3>tu?</h3>
-                        </div>
+                    <div class="message received">
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="delete-message left">Elimina Messaggio</div>
+                        <h3>tu?</h3>
                     </div>
                 </div>              <!-- (fino a riga 340) un div 'center-chat' per contenere le conversazioni con ogni utente -->
                 <div class="center-chat" data-codice-utente="2"></div>
@@ -257,14 +250,14 @@
                 <div class="center-chat" data-codice-utente="9"></div>
                 <div class="center-chat" data-codice-utente="10"></div>
 
-                <div class="template-box-message">      <!-- Template generico che viene applicato a ogni messaggio mandato o ricevuto -->
-                    <div class="message">
-                        <i class="fas fa-chevron-down"></i>
-                        <div class="delete-message left">Elimina Messaggio</div>
-                        <h3 class="testo-messaggio">Ok</h3>
-                    </div>
-                </div>
 
+                <script id="messaggio-template" type="text/x-handlebars-template">      <!-- 'Handlebars' Template generico che viene applicato a ogni messaggio mandato o ricevuto -->
+                    <div class="message {{sentReceived}}">
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="delete-message {{sxODx}}">Elimina Messaggio</div>
+                        <h3 class="testo-messaggio">{{testoMessaggio}}</h3>
+                    </div>
+                </script>
 
                 <div class="bottom-chat-container">         <!-- Contiene l'input per inviare un messaggio e 3 icone -->
                     <i class="far fa-smile"></i>
