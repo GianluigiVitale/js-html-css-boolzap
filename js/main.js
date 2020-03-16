@@ -29,10 +29,10 @@ $(document).ready(function() {
         var messaggioInput = $('#message').val();
         if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto
             $('#message').val('');                      // resetto il valore dell'input
-            invioMessaggioConScrollDown(messaggioInput, 'sent');    // mando un messaggio in chat
+            invioMessaggioConScrollDown(messaggioInput, 'sent', '.center-chat.active');    // mando un messaggio in chat
             checkInputMessage();                                //Eseguo nuovamente il controllo per rimuovere il paper-plane
             setTimeout(function() {
-                invioMessaggioConScrollDown('ok', 'received');
+                invioMessaggioConScrollDown('ok', 'received', '.center-chat.active');
             }, 1000);
         }
     });
@@ -90,14 +90,135 @@ $(document).ready(function() {
         $(this).parent().remove();
     });
 
-
-    // Funzioni usate
-
+    var messaggiArchiviati = {
+        c0: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Fabio come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c1: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Fabrizio come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c2: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Marta come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c3: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Irene come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c4: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Gianluca come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c5: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Luca come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c6: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Riccardo come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c7: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Nicolò come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c8: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Michele come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+        c9: [
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Ciao Chiara come stai?',
+                sentReceived: 'sent'
+            },
+            {                                 // Assemblo in un oggetto il contenuto del messaggio
+                testoMessaggio: 'Non c\'è male, ma Luca mi sta facendo impazzire',
+                sentReceived: 'received'
+            }
+        ],
+    };
 
     var source = $('#messaggio-template').html();              // clono il template messaggio
     var template = Handlebars.compile(source);                 // do in pasto ad Handlebars il template clonato
 
-    function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass) {  // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare
+    for (var convKey in messaggiArchiviati) {                            // ciclo nell'oggetto
+        // console.log(convKey);                                         // Stampo la chiave
+        // console.log(messaggiArchiviati[convKey]);                     // Stampo il valore MEMENTO senza dot notation
+        var numeroConversazione = convKey[1];
+        // console.log('Trasformo la chiave: ' + convKey + ' in: ----> ' + numeroConversazione);
+        for (var i = 0; i < convKey.length; i++) {                       // per ogni chiave dell'oggetto devo fare un ciclo nell'array corrisponte
+            // console.log(messaggiArchiviati[convKey][i]);
+            var oggettoMessaggio = messaggiArchiviati[convKey][i];       // Shortcut
+            var testoMessaggio = oggettoMessaggio.testoMessaggio;        // Shortcut
+            var direzione = oggettoMessaggio.sentReceived;                  // Shortcut
+
+            var selettoreConversazione = $('.center-chat[data-codice-utente="' + numeroConversazione + '"]');
+            invioMessaggioConScrollDown(testoMessaggio, direzione, selettoreConversazione);
+        }
+    }
+
+
+    
+    // Funzioni usate
+
+
+
+    function invioMessaggioConScrollDown(messaggioDaInviare, sendOrReceiveClass, selettoreConversazione) {  // funzione che serve per mandare o ricevere un messaggio, valori di input messaggio da inserrire e se e' un messaggio da ricevere o da mandare
         var datiMessaggio = {
             testoMessaggio: messaggioDaInviare,
             sentReceived: sendOrReceiveClass,
@@ -110,7 +231,7 @@ $(document).ready(function() {
         }
 
         var templateMessaggio = template(datiMessaggio);
-        $('.center-chat.active').append(templateMessaggio);
+        $(selettoreConversazione).append(templateMessaggio);
         scrollDown();
     }
 
