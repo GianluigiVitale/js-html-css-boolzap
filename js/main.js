@@ -24,6 +24,18 @@ $(document).ready(function() {
     //     });
     // }
 
+    var elencoRisposte = [
+        'Chi lascia la strada vecchia per la nuova arriva prima perché è meglio asfaltata.',
+        'Gallina vecchia si fa il lifting.',
+        'Quando si chiude una porta, tu rimani fuori.',
+        'Chi va piano va sano, ma viene tamponato poco lontano.',
+        'Chi troppo vuole nulla rifiuta.',
+        'L’ospite è come il pesce, dopo tre giorni… nuota.',
+        'Can che abbaia lo sbattono fuori dal condominio.',
+        'Chi di spada ferisce gli danno 10 anni senza condizionale.',
+        'Chi dorme non piglia sonniferi.',
+        'Non c’è peggior sordo di chi non sente veramente.',
+    ]
 
     $('.fa-paper-plane').click(function(){          // al click dell'icona paper-plane
         var messaggioInput = $('#message').val();
@@ -32,7 +44,9 @@ $(document).ready(function() {
             invioMessaggioConScrollDown(messaggioInput, 'sent', '.center-chat.active');    // mando un messaggio in chat
             checkInputMessage();                                //Eseguo nuovamente il controllo per rimuovere il paper-plane
             setTimeout(function() {
-                invioMessaggioConScrollDown('ok', 'received', '.center-chat.active');
+                var numeroRispostaRandom = generaRandom(0, 9);
+                var rispostaRandom = elencoRisposte[numeroRispostaRandom];
+                invioMessaggioConScrollDown(rispostaRandom, 'received', '.center-chat.active');
             }, 1000);
         }
     });
@@ -213,7 +227,82 @@ $(document).ready(function() {
     }
 
 
-    
+    var utentiChat = [      // array con oggetti contenente immagine, nome, messaggio e orario di ogni utente
+        {
+            source: 'img/1.png',
+            name: 'Fabio',
+            message: 'Non poteva essere altrimenti',
+            time: '17:53'
+        },
+        {
+            source: 'img/2.png',
+            name: 'Fabrizio',
+            message: 'ti devo raccontare una cosa',
+            time: '08:07'
+        },
+        {
+            source: 'img/3.png',
+            name: 'Marta',
+            message: 'Proprio così',
+            time: '00:35'
+        },
+        {
+            source: 'img/4.png',
+            name: 'Irene',
+            message: 'beato te!',
+            time: '12:38'
+        },
+        {
+            source: 'img/5.png',
+            name: 'Gianluca',
+            message: 'Come stai?',
+            time: '23:29'
+        },
+        {
+            source: 'img/6.png',
+            name: 'Luca',
+            message: 'si',
+            time: '18:15'
+        },
+        {
+            source: 'img/7.png',
+            name: 'Riccardo',
+            message: 'ma stai scherzando?!',
+            time: '15:00'
+        },
+        {
+            source: 'img/8.png',
+            name: 'Nicolò',
+            message: 'meno male',
+            time: '17:27'
+        },
+        {
+            source: 'img/9.png',
+            name: 'Michele',
+            message: 'tutto bene grazie, tu?',
+            time: '19:16'
+        },
+        {
+            source: 'img/10.png',
+            name: 'Chiara',
+            message: 'ti ringrazio',
+            time: '12:11'
+        }
+    ]
+
+    var source1 = $('#chat-template').html();              // clono il template messaggio
+    var template1 = Handlebars.compile(source1);                 // do in pasto ad Handlebars il template clonato
+
+    for (var i = 0; i < utentiChat.length; i++) {   // ciclo l'array utentiChat per fare l'append al template di handlebars per popolare la parte sinistra con le varie info degli utenti
+        var appendUtente = utentiChat[i];
+        var chatToAppend = $('.username[data-codice-utente="' + i + '"]');
+
+        var html1 = template1(appendUtente);
+        $(chatToAppend).append(html1);
+    }
+
+
+
     // Funzioni usate
 
 
@@ -262,6 +351,11 @@ $(document).ready(function() {
     function scrollDown() {         // funzione che serve per fare lo scroll automatico (all'invio o ricezione di un messaggio)
         var centerChatDown = $('.center-chat.active').prop("scrollHeight");
         $('.center-chat.active').scrollTop(centerChatDown);
+    }
+
+    function generaRandom(min, max) {   // funzione che genera un numero random tra 2 valori (compresi) min e max
+        var numeroRandom = Math.floor(Math.random() * (max - min + 1)) + min;
+        return numeroRandom;
     }
 
 });
