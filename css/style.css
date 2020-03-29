@@ -238,6 +238,7 @@ i:hover {
 }
 
 .message {
+    display: flex;
     position: relative;
     padding: 20px 15px;
     border-radius: 15px;
@@ -280,6 +281,12 @@ i:hover {
     font-size: 18px;
     padding: 25px;
     border-radius: 20px;
+}
+
+.orario {
+    padding-left: 10px;
+    align-self: flex-end;
+    color: #BABABA;
 }
 
 .left {
@@ -332,6 +339,10 @@ i:hover {
 
 .active {   /* questa classe serve per visualizzare le chat dell'utente quando richiesto */
     display: flex;
+}
+
+.selected {
+    background-color: #ECEEEE;
 }
 /* fine stile parte destra pagina (.chat) */
 

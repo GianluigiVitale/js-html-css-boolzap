@@ -42,7 +42,7 @@
                     <input id="search-bar" type="text" placeholder="Cerca o inizia una nuova chat">
                 </div>
                 <div class="recent-chat">       <!-- Questa sezione include 10 utenti, ognuno ha un immagine profilo, un nome, un messaggio e l'orario  -->
-                    <div class="username" data-codice-utente="0"></div>
+                    <div class="username selected" data-codice-utente="0"></div>
                     <div class="username" data-codice-utente="1"></div>
                     <div class="username" data-codice-utente="2"></div>
                     <div class="username" data-codice-utente="3"></div>
@@ -64,7 +64,7 @@
                             </div>
                             <div class="name-recent-user1 bold">
                                 <h2>Fabio</h2>
-                                <p>Ultimo accesso oggi alle 00:40</p>
+                                <p>Ultimo accesso oggi alle <span class="ultimo-accesso">17:53</span></p>
                             </div>
                         </div>
                     </div>
@@ -91,10 +91,11 @@
                         <i class="fas fa-chevron-down"></i>
                         <div class="delete-message {{sxODx}}">Elimina Messaggio</div>
                         <h3 class="testo-messaggio">{{testoMessaggio}}</h3>
+                        <p class="orario">{{orario}}</p>
                     </div>
                 </script>
 
-                <script id="chat-template" type="text/x-handlebars-template">
+                <script id="chat-template" type="text/x-handlebars-template">       <!-- 'Handlebars' Template generico che viene applicato a ogni utente recente (parte sinistra)-->
                     <div class="img-time">
                         <div class="img-profile round-img">
                             <img src="{{source}}">
