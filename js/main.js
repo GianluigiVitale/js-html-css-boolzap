@@ -29,12 +29,13 @@ $(document).ready(function() {
         if (messaggioInput.trim().length > 0) {         // se l'input ha contenuto
             $('#message').val('');                      // resetto il valore dell'input
             invioMessaggioConScrollDown(messaggioInput, 'sent', '.center-chat.active', oraAttuale());    // mando un messaggio in chat
-                aggiornamentoMessaggioEOrario(messaggioInput)
+                aggiornamentoMessaggioEOrario(messaggioInput);
             checkInputMessage();                                //Eseguo nuovamente il controllo per rimuovere il paper-plane
             setTimeout(function() {                             // dopo un secondo ricevo una risposta casuale scelta tra l'array elencoRisposte
                 var rispostaRandom = generaRispostaRandom();
                 invioMessaggioConScrollDown(rispostaRandom, 'received', '.center-chat.active', oraAttuale());
-                    aggiornamentoMessaggioEOrario(rispostaRandom)
+                    aggiornamentoMessaggioEOrario(rispostaRandom);
+                    $('.name-recent-user1 p').text('Ultimo accesso oggi alle ' + oraAttuale());
             }, 1000);
         }
     });
@@ -82,16 +83,20 @@ $(document).ready(function() {
 
 
     $(document).on('click', '.message i' ,function() {  // serve per far apparire al click dell'icona 'chevron down' il menu a tendina 'elimina messaggio' anche sui messaggi mandati dinamicamente
-        if ($(this).parent().children('.delete-message').is(":visible")) {
-            $(this).parent().children('.delete-message').slideToggle();
+        if ($(this).parent().children('.drop-down-menu').is(":visible")) {
+            $(this).parent().children('.drop-down-menu').slideToggle();
         } else {
-            $('.delete-message').slideUp();
-            $(this).parent().children('.delete-message').slideToggle();
+            $('.drop-down-menu').slideUp();
+            $(this).parent().children('.drop-down-menu').slideToggle();
         }
     });
 
     $(document).on('click', '.delete-message' ,function() { // creo un altro document.on perche' se lo metto dentro al precedente non esegue l'evento solo una volta
-        $(this).parent().remove();
+        $(this).parents('.message').remove();
+        var ultimoMessaggio = $('.center-chat.active').find('.message:last-child .testo-messaggio').text();
+        var orarioUltimoMessaggio = $('.center-chat.active').find('.message:last-child .orario').text();
+        $('.username.selected').find('.name-recent-user p').text(tagliaMessaggio(ultimoMessaggio));
+        $('.username.selected').find('.last-chat-user p').text(orarioUltimoMessaggio);
     });
 
     var messaggiArchiviati = {      // questo oggetto contiene i messaggi di ogni conversazione (che poi viene dato in pasto a handlebars)

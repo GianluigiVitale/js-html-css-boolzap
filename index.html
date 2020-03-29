@@ -64,7 +64,7 @@
                             </div>
                             <div class="name-recent-user1 bold">
                                 <h2>Fabio</h2>
-                                <p>Ultimo accesso oggi alle <span class="ultimo-accesso">17:53</span></p>
+                                <p>Ultimo accesso oggi alle 17:53</p>
                             </div>
                         </div>
                     </div>
@@ -89,9 +89,12 @@
                 <script id="messaggio-template" type="text/x-handlebars-template">      <!-- 'Handlebars' Template generico che viene applicato a ogni messaggio mandato o ricevuto -->
                     <div class="message {{sentReceived}}">
                         <i class="fas fa-chevron-down"></i>
-                        <div class="delete-message {{sxODx}}">Elimina Messaggio</div>
                         <h3 class="testo-messaggio">{{testoMessaggio}}</h3>
                         <p class="orario">{{orario}}</p>
+                        <div class="drop-down-menu {{sxODx}}">
+                            <a href="#"><p>Info Messaggio</p></a>
+                            <a href="#"><p class="delete-message">Cancella Messaggio</p></a>
+                        </div>
                     </div>
                 </script>
 
